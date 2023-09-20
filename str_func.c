@@ -87,7 +87,7 @@ void puts_(char *str)
  */
 int putchar_(char c)
 {
-	static int idx = 0;
+	static int idx;
 	static char buf[WRITE_BUF_SIZE];
 
 	if (c == BUF_FLUSH || idx >= WRITE_BUF_SIZE)
