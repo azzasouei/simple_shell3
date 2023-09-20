@@ -1,5 +1,5 @@
-#ifndef _HSH_H_
-#define _HSH_H_
+#ifndef HSH_H
+#define HSH_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,6 +15,9 @@
 #define WRITE_BUF_SIZE 1024
 #define BUF_FLUSH -1
 
+/**
+ * liststr - a structure 
+*/
 typedef struct liststr
 {
 	int num;
@@ -22,7 +25,9 @@ typedef struct liststr
 	struct liststr *next;
 } list_t;
 
-
+/**
+* passinfo - a structure
+ */
 typedef struct passinfo
 {
 	char *arg;
@@ -58,11 +63,11 @@ char *strcat_(char *, char *);
 char *strcpy_(char *, char *);
 char *strdup_(const char *);
 /* str_func_2.c */
-char *strchr_(char *, char);
-char** str_to_vec(char* str);
+char *strchr_(char *, char *);
+char **str_to_vec(char *str);
 /* memory_helper.c */
 char *memset_(char *, char, unsigned int);
-void arr_free(char**);
+void arr_free(char **);
 void *realloc_(void *, unsigned int, unsigned int);
 int bfree(void **);
 /* helper.c */
