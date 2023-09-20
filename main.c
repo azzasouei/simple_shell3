@@ -19,7 +19,13 @@ int bfree(void **ptr);
 
 int main(void)
 {
+<<<<<<< HEAD
 	info_t info;	
+=======
+	info_t info;
+
+	memset(&info, 0, sizeof(info_t));
+>>>>>>> 6b43439d3e77bb1934d64bc349c6aeb36791ad35
 
 	memset(&info, 0, sizeof(info_t));
         
