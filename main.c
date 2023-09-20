@@ -17,6 +17,7 @@ int bfree(void **ptr);
 int main(void)
 {
 	info_t info;
+
 	memset(&info, 0, sizeof(info_t));
 
 	if (terminal_mode(&info))
