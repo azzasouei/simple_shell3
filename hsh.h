@@ -123,7 +123,6 @@ char *strcpy_(char *, char *);
 char *strdup_(const char *);
 /* str_func_2.c */
 char *strchr_(char *, char);
-char *strchr_(char *, char *);
 char **str_to_vec(char *str);
 /* memory_helper.c */
 char *memset_(char *, char, unsigned int);

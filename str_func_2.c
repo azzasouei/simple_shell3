@@ -1,4 +1,5 @@
-#include "hsh.h²
+#include "hsh.h"
+#include <stdlib.h>
 /**
  **strchr_ - locates a character in a string
  *@str: the string to be parsed
@@ -20,69 +21,100 @@ char *strchr_(char *str, char c)
 }
 
 /**
- * **str_to_vec - splits a string into words.
- * @str: the input string
+ * count_words - Count the number of words in a string.
+ * @str: The input string.
+ * @delimiter: The word delimiter.
  *
- *Return: a pointer to an array of strings, or NULL.
+ * Return: The number of words.
+ */
+static int count_words(char *str, char *delimiter)
+{
+	int count = 0;
+	int is_word = 0;
+
+	while (*str)
+	{
+		if (!is_delim(*str, delimiter))
+		{
+			if (!is_word)
+			{
+				count++;
+				is_word = 1;
+			}
+		}
+		else
+		{
+			is_word = 0;
+		}
+		str++;
+	}
+
+	return (count);
+}
+
+/**
+ * split_string - Split a string into an array of words.
+ * @str: The input string.
+ * @delimiter: The word delimiter.
+ *
+ * Return: An array of words.
+ */
+static char **split_string(char *str, char *delimiter)
+{
+	int num_words = count_words(str, delimiter);
+	char **words = malloc(sizeof(char *) * (num_words + 1));
+	int word_index = 0;
+	int word_length = 0;
+	int is_word = 0;
+
+	if (num_words == 0)
+	{
+		return (NULL);
+	}
+	if (!words)
+	{
+		return (NULL);
+	}
+	while (*str)
+	{
+		if (!is_delim(*str, delimiter))
+		{
+			if (!is_word)
+			{
+				is_word = 1;
+				word_length = 0;
+				words[word_index] = str;
+				word_index++;
+			}
+			word_length++;
+		}
+		else
+		{
+			if (is_word)
+			{
+				*str = '\0';
+			}
+			is_word = 0;
+		}
+		str++;
+	}
+	words[num_words] = NULL;
+	return (words);
+}
+/**
+ * str_to_vec - Split a string into words.
+ * @str: The input string.
+ *
+ * Return: An array of words.
  */
 char **str_to_vec(char *str)
 {
-	int i = 0;
-	int j = 0;
-	int k = 0;
-	int m = 0;
-	int number_of_words = 0;
 	char *delimiter = " ";
-	char **vector;
 
-	if (str == NULL || str[0] == 0)
+	if (!str || !str[0])
 	{
 		return (NULL);
 	}
-	for (i = 0; str[i] != '\0'; ++i)
-	{
-		if (!is_delim(str[i], delimiter) &&
-				(is_delim(str[i + 1], delimiter) || !str[i + 1]))
-		{
-			++number_of_words;
-		}
-	}
-	if (number_of_words == 0)
-	{
-		return (NULL);
-	}
-	vector = malloc(sizeof(char *) * (number_of_words + 1));
-	if (!vector)
-	{
-		return (NULL);
-	}
-	for (i = 0, j = 0; j < number_of_words; ++j)
-	{
-		while (is_delim(str[i], delimiter))
-		{
-			++i;
-		}
-		k = 0;
-		while (!is_delim(str[i], delimiter) && str[i + k])
-		{
-			++k;
-		}
-		vector[j] = malloc(sizeof(char) * (k + 1));
-		if (!vector[j])
-		{
-			for (k = 0; k < j; ++k)
-			{
-				free(vector[k]);
-			}
-			free(vector);
-			return (NULL);
-		}
-		for (m = 0; m < k; ++m)
-		{
-			vector[j][m] = str[i++];
-		}
-		vector[j][m] = 0;
-	}
-	vector[j] = NULL;
-	return (vector);
+
+	return (split_string(str, delimiter));
 }
