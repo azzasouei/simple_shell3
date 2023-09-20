@@ -1,5 +1,5 @@
-#ifndef _HSH_H_
-#define _HSH_H_
+#ifndef HSH_H
+#define HSH_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,6 +14,7 @@
 
 #define WRITE_BUF_SIZE 1024
 #define BUF_FLUSH -1
+
 /**
  * struct liststr - Structure for a singly-linked list node
  *
@@ -29,12 +30,15 @@
  * This structure is used to construct linked lists for various
  * purposes, such as storing data or building data structures.
  */
+
+
 typedef struct liststr
 {
 	int num;
 	char *str;
 	struct liststr *next;
 } list_t;
+
 /**
  * struct passinfo - Information structure for a shell program
  * @arg: A pointer to a string representing a command argument.
@@ -119,6 +123,7 @@ char *strcpy_(char *, char *);
 char *strdup_(const char *);
 /* str_func_2.c */
 char *strchr_(char *, char);
+char *strchr_(char *, char *);
 char **str_to_vec(char *str);
 /* memory_helper.c */
 char *memset_(char *, char, unsigned int);
