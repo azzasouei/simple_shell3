@@ -1,4 +1,7 @@
 #include "hsh.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 int terminal_mode(info_t *info);
 int is_delim(char c, char *delim);
 int isalpha_(int c);
@@ -16,9 +19,10 @@ int bfree(void **ptr);
 
 int main(void)
 {
-	info_t info;
-	memset(&info, 0, sizeof(info_t));
+	info_t info;	
 
+	memset(&info, 0, sizeof(info_t));
+        
 	if (terminal_mode(&info))
 	{
 		printf("Interactive mode\n");

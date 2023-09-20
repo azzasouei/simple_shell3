@@ -1,4 +1,7 @@
 #include "hsh.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 /**
  **memset_ - fills memory with a given value
