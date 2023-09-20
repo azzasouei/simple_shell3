@@ -1,7 +1,4 @@
-#include "hsh.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include "hsh.h²
 /**
  **strchr_ - locates a character in a string
  *@str: the string to be parsed

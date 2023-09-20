@@ -1,7 +1,4 @@
 #include "hsh.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 int terminal_mode(info_t *info);
 int is_delim(char c, char *delim);
 int isalpha_(int c);

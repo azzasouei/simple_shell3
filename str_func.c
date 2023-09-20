@@ -1,7 +1,4 @@
 #include "hsh.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 /**
  * strlen_- returns the length of a string
  * @str: the string whose length to check

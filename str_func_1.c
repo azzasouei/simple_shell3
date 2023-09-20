@@ -1,7 +1,4 @@
 #include "hsh.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 /**
  * begins_with - checks if string starts with substring
  * @str: string to search
