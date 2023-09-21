@@ -110,8 +110,6 @@ typedef struct passinfo
 	int histcount;
 } info_t;
 
-void execute_command(char *cmd);
-
 /* str_func.c */
 int strlen_(char *);
 int strcmp_(char *, char *);
@@ -134,7 +132,7 @@ int bfree(void **);
 int terminal_mode(info_t *);
 int is_delim(char, char *);
 int isalpha_(int);
-int atoi_(char *);
+int _atoi(char *);
 
 
 #endif

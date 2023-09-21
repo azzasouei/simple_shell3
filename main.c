@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 #define MAX_INPUT_LENGTH 1024
 
@@ -28,7 +30,8 @@ int main(void)
 {
         char input[MAX_INPUT_LENGTH];
         int status;
-        pid_t pid = fork();
+
+	pid_t pid = fork();
 
         for (;;)
         {
