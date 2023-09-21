@@ -26,37 +26,35 @@ int bfree(void **ptr);
  */
 int main(void)
 {
-        char input[MAX_INPUT_LENGTH];
-        int status;
-        pid_t pid = fork();
+	char input[MAX_INPUT_LENGTH];
+	int status;
+	pid_t pid = fork();
 
-        for (;;)
-        {
-                printf("simple> ");
-                if (fgets(input, sizeof(input), stdin) == NULL)
-                {
-                        printf("\nExiting simple_shell.\n");
-                        break;
-                }
+	for (;;)
+	{
+		printf("simple> ");
+		if (fgets(input, sizeof(input), stdin) == NULL)
+		{
+			printf("\nExiting simple_shell.\n");
+			break;
+		}
 	}
-                input[strcspn(input, "\n")] = '\0';
+	input[strcspn(input, "\n")] = '\0';
 
-                if (pid == -1)
-                {
-                        perror("Fork error");
-                        exit(EXIT_FAILURE);
-                } else if (pid == 0)
-                {
-                        if (execlp(input, input, NULL) == -1)
-                        {
-                                perror("Exec error");
-                                exit(EXIT_FAILURE);
-                        }
-                } else
-                {
-
-                        wait(&status);
-                }
-        
-        return (0);
+	if (pid == -1)
+	{
+		perror("Fork error");
+		exit(EXIT_FAILURE);
+	} else if (pid == 0)
+	{
+		if (execlp(input, input, NULL) == -1)
+		{
+			perror("Exec error");
+			exit(EXIT_FAILURE);
+		}
+	} else
+	{
+		wait(&status);
+	}
+	return (0);
 }
