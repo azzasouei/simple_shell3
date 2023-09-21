@@ -25,7 +25,7 @@ int bfree(void **ptr);
  */
 int main(void)
 {
-	char cmd[] = "ls - l";
+	char cmd[] = "ls -l";
 
 	execute_command(cmd);
 
