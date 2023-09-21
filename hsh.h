@@ -110,7 +110,7 @@ typedef struct passinfo
 	int histcount;
 } info_t;
 
-void excute_cmd(char *cmd);
+void execute_command(char *cmd);
 
 /* str_func.c */
 int strlen_(char *);

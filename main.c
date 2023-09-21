@@ -25,22 +25,10 @@ int bfree(void **ptr);
  */
 int main(void)
 {
-/**	info_t info;
-
-	memset(&info, 0, sizeof(info_t));
-	if (terminal_mode(&info))
-	{
-		printf("Interactive mode\n");
-	}
-	else
-	{
-		printf("Not in interactive mode\n");
-	}
-	return (EXIT_SUCCESS);
-**/
 	char cmd[] = "ls - l";
-	excute_cmd(cmd);
 
-	return ();
+	execute_command(cmd);
+
+	return (0);
 }
 
