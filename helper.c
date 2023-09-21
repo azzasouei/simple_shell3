@@ -1,7 +1,4 @@
 #include "hsh.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 
 /**
  * terminal_mode - returns true if terminal is interactive mode
