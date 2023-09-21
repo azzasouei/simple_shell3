@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define MAX_INPUT_LENGTH 1024
+
 int terminal_mode(info_t *info);
 int is_delim(char c, char *delim);
 int isalpha_(int c);
@@ -19,14 +21,41 @@ void arr_free(char **arr);
 void *realloc_(void *ptr, unsigned int old_size, unsigned int new_size);
 int bfree(void **ptr);
 /**
- * main -  initializes program state
- * and checks if it's in interactive mode
- * Return: exit success
+ * main - Simple UNIX-like shell
+ * Return: 0
  */
 int main(void)
 {
-	char cmd[] = "ls -l";
-	execute_command(cmd);
+        char input[MAX_INPUT_LENGTH];
+        int status;
+        pid_t pid = fork();
 
-	return (0);
+        for (;;)
+        {
+                printf("simple_shell> ");
+                if (fgets(input, sizeof(input), stdin) == NULL)
+                {
+                        printf("\nExiting simple_shell.\n");
+                        break;
+                }
+                input[strcspn(input, "\n")] = '\0';
+
+                if (pid == -1)
+                {
+                        perror("Fork error");
+                        exit(EXIT_FAILURE);
+                } else if (pid == 0)
+                {
+                        if (execlp(input, input, NULL) == -1)
+                        {
+                                perror("Exec error");
+                                exit(EXIT_FAILURE);
+                        }
+                } else
+                {
+
+                        wait(&status);
+                }
+        }
+        return (0);
 }
