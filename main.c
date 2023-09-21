@@ -1,4 +1,13 @@
 #include "hsh.h"
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+#define MAX_INPUT_LENGTH 1024
+
 int terminal_mode(info_t *info);
 int is_delim(char c, char *delim);
 int isalpha_(int c);
