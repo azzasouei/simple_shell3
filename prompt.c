@@ -9,6 +9,7 @@ int main(void)
 {
 	char input[MAX_INPUT_LENGTH];
 	int status;
+	pid_t pid = fork();
 
 	for (;;)
 	{
@@ -19,8 +20,6 @@ int main(void)
 			break;
 		}
 		input[strcspn(input, "\n")] = '\0';
-
-		pid_t pid = fork();
 
 		if (pid == -1)
 		{
