@@ -25,7 +25,7 @@ int bfree(void **ptr);
  */
 int main(void)
 {
-	info_t info;
+/**	info_t info;
 
 	memset(&info, 0, sizeof(info_t));
 	if (terminal_mode(&info))
@@ -37,4 +37,10 @@ int main(void)
 		printf("Not in interactive mode\n");
 	}
 	return (EXIT_SUCCESS);
+**/
+	char cmd[] = "ls - l";
+	excute_cmd(cmd);
+
+	return ();
 }
+
