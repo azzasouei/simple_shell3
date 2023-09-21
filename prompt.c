@@ -8,6 +8,7 @@
 int main(void)
 {
 	char input[MAX_INPUT_LENGTH];
+	int status;
 
 	for (;;)
 	{
@@ -34,7 +35,6 @@ int main(void)
 			}
 		} else
 		{
-			int status;
 
 			wait(&status);
 		}
