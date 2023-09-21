@@ -40,6 +40,5 @@ int main(void)
 	{
 		printf("Not in interactive mode\n");
 	}
-     
-	exit (EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }
