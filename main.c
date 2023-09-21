@@ -13,13 +13,16 @@ char *memset_(char *dest, char val, unsigned int n);
 void arr_free(char **arr);
 void *realloc_(void *ptr, unsigned int old_size, unsigned int new_size);
 int bfree(void **ptr);
-
+/**
+ * main -  initializes program state
+ * and checks if it's in interactive mode
+ * Return: exit success
+ */
 int main(void)
 {
 	info_t info;
 
 	memset(&info, 0, sizeof(info_t));
-        
 	if (terminal_mode(&info))
 	{
 		printf("Interactive mode\n");
