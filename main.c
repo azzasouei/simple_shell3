@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-ii
+
 #define MAX_INPUT_LENGTH 1024
 
 int terminal_mode(info_t *info);
@@ -32,12 +32,13 @@ int main(void)
 
         for (;;)
         {
-                printf("simple_shell> ");
+                printf("simple> ");
                 if (fgets(input, sizeof(input), stdin) == NULL)
                 {
                         printf("\nExiting simple_shell.\n");
                         break;
                 }
+	}
                 input[strcspn(input, "\n")] = '\0';
 
                 if (pid == -1)
@@ -56,6 +57,6 @@ int main(void)
 
                         wait(&status);
                 }
-        }
+        
         return (0);
 }
