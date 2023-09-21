@@ -1,4 +1,9 @@
 #include "hsh.h"
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 int terminal_mode(info_t *info);
 int is_delim(char c, char *delim);
 int isalpha_(int c);
@@ -31,6 +36,5 @@ int main(void)
 	{
 		printf("Not in interactive mode\n");
 	}
-
 	return (EXIT_SUCCESS);
 }
