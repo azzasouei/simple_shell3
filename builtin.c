@@ -1,7 +1,7 @@
 #include "hsh.h"
 
 /**
- * _myexit - exits the shell
+ * _myexit - exit the shell
  * @info: Structure containing potential arguments.
  * Return: Exits with a given exit status
  */
