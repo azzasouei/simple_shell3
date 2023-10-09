@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "hsh.h"
 
 /**
  * my_custom_exit - Exit the shell or set the exit status
