@@ -24,7 +24,7 @@ int bfree(void **ptr);
  * main - Simple UNIX-like shell
  * Return: 0
  */
-int main(void)
+int main(int argc , char* argv )
 {
 	char input[MAX_INPUT_LENGTH];
 	int status;
